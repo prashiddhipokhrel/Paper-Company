@@ -36,3 +36,21 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 11.08 on 22 degrees of freedom
 Multiple R-squared:  0.9988,	Adjusted R-squared:  0.9986 
 F-statistic:  4629 on 4 and 22 DF,  p-value: < 2.2e-16
+b
+##### The output shows that F = 4629(p < 2.2e-16) which is less than the alpha = 0.05, so we reject that null hypothesis that the variables paper, machine, overhead, and labor 
+have not affect on cost meaning the model is a good fit ### 
+
+c. 99.8% of the variation in cost has been explained by the regression 
+
+d. 
+> ?anova
+> anova(model, recudedModel)
+Analysis of Variance Table
+
+Model 1: cost ~ paper + machine + overhead + labor
+Model 2: cost ~ machine + paper
+  Res.Df    RSS Df Sum of Sq      F Pr(>F)
+1     22 2698.7                           
+2     24 2895.3 -2   -196.57 0.8012 0.4615
+
+Since the p-value is greater than 0.05 so we can conclude that overhead and labor does not significantly effect the model and can be removed from the model. 
