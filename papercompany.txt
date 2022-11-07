@@ -1,0 +1,38 @@
+> setwd("C:/Users/Swift/OneDrive/Desktop")
+> mydata = read.table("papercompany.txt", header = TRUE)
+> head(mydata)
+  COST PAPER MACHINE OVERHEAD LABOR
+1 1102   550     218      112   325
+2 1008   502     199       99   301
+3 1227   616     249      126   376
+4 1395   701     277      143   419
+5 1710   838     363      191   682
+6 1881   919     399      210   751
+> cost = mydata$COST
+> paper = mydata$PAPER
+> machine = mydata$MACHINE
+> overhead = mydata$OVERHEAD
+> labor = mydata$LABOR
+> model = lm(cost ~ paper+machine+overhead+labor)
+> summary(model)
+
+Call:
+lm(formula = cost ~ paper + machine + overhead + labor)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-18.691  -7.407  -1.978   6.675  22.516 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 51.72314   21.70397   2.383   0.0262 *  
+paper        0.94794    0.12002   7.898 7.30e-08 ***
+machine      2.47104    0.46556   5.308 2.51e-05 ***
+overhead     0.04834    0.52501   0.092   0.9275    
+labor       -0.05058    0.04030  -1.255   0.2226    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 11.08 on 22 degrees of freedom
+Multiple R-squared:  0.9988,	Adjusted R-squared:  0.9986 
+F-statistic:  4629 on 4 and 22 DF,  p-value: < 2.2e-16
